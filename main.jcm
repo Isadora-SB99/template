@@ -11,11 +11,43 @@
 
 mas main {
 
-    agent bob: sample_agent.asl {
-      focus: w.c1 
+    agent bob: hello2.asl {
+      beliefs: country(us)
+      join: jacamo
+      focus: jacamo.gui
     }
 
-    workspace w {
-      artifact c1: example.Counter(3) 
+    agent gerson: hello2.asl {
+      beliefs: country(aulaIa1)
+      focus: jacamo.gui 
+    }
+
+    agent guilherme: hello2.asl {
+      beliefs: country(aulaIa2)
+      focus: jacamo.gui 
+    }
+
+    agent alice: hello.asl {
+      beliefs: message("good morning")
+      focus: jacamo.gui 
+    }
+
+    agent francoise: hello.asl {
+      beliefs: message("bonjour")
+      focus: jacamo.gui 
+    }
+
+    agent maria: hello.asl {
+      beliefs: message("bom dia")
+      focus: jacamo.gui 
+    }
+
+    agent giacomo: hello.asl {
+      beliefs: message("buon giorno")
+      focus: jacamo.gui 
+    }
+
+    workspace jacamo {
+      artifact gui: display.GUIConsole("common") 
     }
 }
